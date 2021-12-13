@@ -62,4 +62,15 @@ public class AgendaController {
 
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/nome")
+    public ResponseEntity<Agenda> buscarPorNome(@RequestBody Agenda nomeProcurado) {
+        Agenda clienteEncontrado = repo.findByNome(nomeProcurado.getNome());
+
+        if(clienteEncontrado != null) {
+            return ResponseEntity.ok(clienteEncontrado);
+        }
+
+        return ResponseEntity.notFound().build();
+    }
 }

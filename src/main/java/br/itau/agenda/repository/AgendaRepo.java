@@ -7,5 +7,5 @@ import br.itau.agenda.model.Agenda;
 
 @Repository
 public interface AgendaRepo extends CrudRepository <Agenda, Integer> {
-    
+    public Agenda findByNome(String nome);
 }
